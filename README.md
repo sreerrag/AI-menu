@@ -4,4 +4,4 @@ Link for the static files:https://drive.google.com/drive/folders/1OZs_wKxlTAajsl
 
 download all these files
 
-create a static folder inside the project and save these downloaded folders inside the static folder
+create a static folder inside the project folder and save these downloaded folders inside the static folder
