@@ -1,0 +1,32 @@
+{% extends "KITCHEN/KITCHEN HOME.html" %}{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="get" action="">
+  <table width="764" height="163" border="1" class="table table-hover">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">table_id</th>
+      <th scope="col">date</th>
+      <th scope="col">feedback</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['table_id'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['date']}}</td>
+      <td>&nbsp;{{ i['feedback'] }}</td>
+      <td><a href="/del_comment/{{ i['feedback_id'] }}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

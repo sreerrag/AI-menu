@@ -1,0 +1,32 @@
+{% extends "ADMIN/ADMIN HOME.html" %}{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/update_offer/{{ data['offer_id'] }}" method="post" enctype="multipart/form-data">
+  <table ALIGN="center" width="372" height="507" border="1" class="table table-hover">
+
+    <tr>
+      <th scope="row"> OFFER PRICE</th>
+      <th scope="row"><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" value="{{ data['offered_price'] }}" /></th>
+
+    </tr>
+       <tr>
+      <th scope="row"> VALID TO</th>
+      <th scope="row"><label for="textfield2"></label>
+      <input type="date" name="textfield" id="textfield2" value="{{ data['valid_to'] }}" /></th>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="UPDATE" /></th>
+    </tr>
+
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

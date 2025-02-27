@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/update_staff/{{ i['staff_id'] }}" method="post" enctype="multipart/form-data">
+  <table align="center" width="658" height="312" border="1">
+    <tr>
+      <th width="285" scope="col">STAFF NAME</th>
+      <th width="357" scope="col"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" value="{{i['staff_name']}}" /></th>
+    </tr>
+    <tr>
+      <td><p align="center"><strong>STAFF PHOTO</strong></p></td>
+      <td><img src="{{ i['staff_photo'] }}" alt="error" height="100" width="100"/><label for="fileField"></label>
+        <div align="right">
+          <input type="file" name="fileField" id="fileField"value="{{ i['s'] }}" />
+      </div></td>
+    </tr>
+    <tr>
+      <td><div align="center"><strong>CONTACT</strong></div></td>
+      <td><label for="textfield2"></label>
+        <div align="center">
+          <input type="text" name="textfield2" id="textfield2" value="{{ i['contact_no'] }}" />
+      </div></td>
+    </tr>
+    <tr>
+      <td height="97" colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="UPDATE" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

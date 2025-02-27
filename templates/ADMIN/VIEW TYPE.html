@@ -1,0 +1,27 @@
+{% extends "ADMIN/ADMIN HOME.html" %}{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="get">
+  <table align="center" width="570" height="220" border="1"  class="table table-hover">
+    <tr>
+      <th width="75" scope="col">#</th>
+      <th width="288" scope="col">FOOD TYPE</th>
+      <th width="185" scope="col">&nbsp;</th>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['food_type'] }}&nbsp;</td>
+      <td><div align="center"><a href="/del_type/{{ i['food_type_id'] }}">DELETE</a></div></td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

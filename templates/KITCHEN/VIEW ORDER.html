@@ -1,0 +1,43 @@
+{% extends "KITCHEN/KITCHEN HOME.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="get">
+  <table align="center" width="570" height="220" border="1" class="table table-hover">
+    <tr>
+      <th width="75" scope="col">#</th>
+      <th width="288" scope="col">TABLE NAME</th>
+      <th width="288" scope="col">DATE</th>
+
+      <th width="288" scope="col">FOOD DETAILS</th>
+        <th></th>
+
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['table_name'] }}&nbsp;</td>
+      <td>{{ i['date'] }}&nbsp;</td>
+    <td><a href="/service_view_food/{{ i['master_table_id'] }}">View Food</a></td>
+    <td>
+        {% if i['ostatus']=='pending' %}
+        <a href="/service_view_staff/{{ i['master_table_id'] }}">Allocate Staff </a>
+    {% else %}
+        Allocated
+        {% endif %}
+    </td>
+
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
+
+

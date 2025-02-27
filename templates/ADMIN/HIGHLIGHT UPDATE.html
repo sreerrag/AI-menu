@@ -1,0 +1,35 @@
+{% extends "ADMIN/ADMIN HOME.html" %}{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="post">
+  <table ALIGN="center" width="744" height="252" border="1" class="table table-hover">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">FOOD TYPE</th>
+      <th scope="col">FOOD NAME</th>
+        <th scope="col">PRICE</th>
+      <th scope="col">IMAGE</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['food_type'] }}&nbsp;</td>
+      <td>{{ i['food_name'] }}</td>
+      <td>{{ i['price'] }}</td>
+      <td><img src="{{ i['image'] }}" alt="image" height="100" width="100"/></td>
+      <td><p align="center"><a href="/high/{{ i['highlight_food_id'] }}">UPDATE</a></p>
+      <p align="center"><a href="delete_high/{{ i['highlight_food_id'] }}">DELETE</a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

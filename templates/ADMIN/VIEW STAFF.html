@@ -1,0 +1,35 @@
+{% extends "ADMIN/ADMIN HOME.html" %}{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table align="center" border="1" class="table table-active">
+    <tr>
+      <th>#</th>
+      <th>STAFF NAME</th>
+      <th >STAFF PHOTO</th>
+      <th >CONTACT NO.</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+     <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ i['staff_name'] }}</td>
+      <td><img src="{{ i['staff_photo'] }}" alt="staff image" height="100" width="100"/> </td>
+      <td>{{ i['contact_no'] }}</td>
+      <th width="44" scope="col"><p><a href="/staff2/{{ i['staff_id'] }}">UPDATE</a></p>
+      <p><a href="/delete_staff/{{ i['staff_id'] }}">DELETE</a></p></th>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+
+{% endblock %}

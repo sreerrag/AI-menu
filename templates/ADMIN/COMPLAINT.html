@@ -1,0 +1,41 @@
+{% extends "ADMIN/ADMIN HOME.html" %}{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="get">
+  <table ALIGN="center" width="653" height="185" border="1" class="table table-hover">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">TABLE NO.</th>
+      <th scope="col">COMPLAINT</th>
+      <th scope="col">DATE</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+
+    <tr>
+
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['table_name'] }}</td>
+      <td>&nbsp;{{ i['complaint'] }}</td>
+      <td>{{ i['date'] }}</td>
+      <td>
+
+          {% if i['reply']=='pending' %}
+          <div align="center"><a href="/reply/{{ i['complaint_id'] }}">REPLY</a></div>
+        {% else %}
+          Reply: {{ i['reply'] }}<br>
+          Date: {{ i['reply_date'] }}
+          {% endif %}
+      </td>
+    </tr>
+   {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/update_food1" enctype="multipart/form-data">
+
+
+
+
+  <table align="center" width="487" height="239" border="1">
+
+    <tr>
+      <th scope="col">FOOD TYPE</th>
+
+        <td> <select name="select">
+
+            {%  for i in food_type %}
+            <option value = "{{ i['food_type_id'] }}"> {{ i['food_type'] }} </option>>
+           {% endfor %}
+        </select>
+        </td>
+    </tr>
+
+    {%  for i in data %}
+      <tr>
+        <th scope="col">FOOD Name</th>
+              <input type="text" name="fud_id" id ="fud_id" value="{{ i['food_id'] }}" hidden >
+
+          <td><input type="text" name="textfield2" value="{{ i['food_name'] }}"/></td>
+
+      </tr>
+       <tr>
+        <th scope="col">price</th>
+
+
+       <td><input type="text" name="price" value="{{ i['price'] }}"/></td>
+      </tr>
+       <tr>
+      <th><strong>IMAGE</strong></th>
+      <td><img src="{{ i['image'] }}" alt="error" height="100" width="100"/><label for="fileField2"></label>
+          <input type="file" name="pic" id="fileField2" value=""/>
+      </td>
+    </tr>
+
+   {% endfor %}
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="UPDATE" />
+      </div></td>
+    </tr>
+
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends "ADMIN/ADMIN HOME.html" %}{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table align="center" width="824" height="266" border="1">
+    <tr>
+      <th width="23" scope="col">#</th>
+{#      <th width="159" scope="col">STAFF ID</th>#}
+      <th width="230" scope="col">STAFF NAME</th>
+      <th width="234" scope="col">STAFF PHOTO</th>
+      <th width="94" scope="col">CONTACT NO.</th>
+      <th width="44" scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+     <td>{{ loop.index }}</td>
+{#      <td>{{ i['staff_id'] }}</td>#}
+      <td>&nbsp;{{ i['staff_name'] }}</td>
+      <td><img src="{{ i['staff_photo'] }}" alt="staff image" height="100" width="100"/> </td>
+      <td>{{ i['contact_no'] }}</td>
+{#      <th width="94" scope="col">&nbsp;</th>#}
+      <th width="44" scope="col"><p><a href="/allocate_staff/{{ i['staff_id'] }}/{{ data1 }}">Allocate</a></p>
+      </th>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

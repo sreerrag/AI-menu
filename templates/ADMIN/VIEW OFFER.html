@@ -1,0 +1,42 @@
+{% extends "ADMIN/ADMIN HOME.html" %}{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table align="center" width="200" height="250" border="1" class="table table-hover">
+    <tr>
+      <th>#</th>
+      <th>FOOD TYPE</th>
+      <th>FOOD NAME</th>
+      <th>PRICE</th>
+      <th>OFFERED PRICE</th>
+      <th>IMAGE</th>
+      <th>DATE</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ i.food_type }}</td>
+      <td>{{ i.food_name }}</td>
+      <td>&nbsp;{{ i.price }}</td>
+      <td>&nbsp;{{ i.offered_price }}</td>
+      <td> <img src=" {{ i.image}}" alt="food image" height="100" width="100"/></td>
+      <td>{{ i.date}}</td>
+      <td><div align="center">
+        <p><a href="/upd_offer/{{ i['offer_id'] }}">UPDATE</a></p>
+        <p><a href="/delete_offer/{{ i['offer_id'] }}">DELETE</a></p>
+      </div></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
